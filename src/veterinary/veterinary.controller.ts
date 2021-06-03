@@ -34,13 +34,13 @@ export class VeterinaryController {
   }
 
   @Get()
-  async getVeterinary(@Res() res) {
+  async getVeterinaries(@Res() res) {
     const Veterinary = await this.veterinaryService.getAppointements();
     return res.status(HttpStatus.OK).json(Veterinary);
   }
 
   @Get('/:id')
-  async getProduct(@Res() res, @Param('id') id) {
+  async getVeterinary(@Res() res, @Param('id') id) {
     const Veterinary = await this.veterinaryService.getVeterinary(id);
     if (!Veterinary) throw new NotFoundException('Veterinary does not exist!');
     return res.status(HttpStatus.OK).json(Veterinary);

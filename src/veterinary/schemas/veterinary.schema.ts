@@ -4,5 +4,5 @@ export const VeterinarySchema = new Schema({
   name: String,
   phone: Date,
   address: String,
-  specialties: String,
+  specialties: [String],
 });
