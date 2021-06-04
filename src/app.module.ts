@@ -26,7 +26,7 @@ import { ConfigService } from '@nestjs/config';
     MongooseModule.forRootAsync({
       imports: [ConfigModule.forRoot({ isGlobal: true })],
       useFactory: async (configService: ConfigService) => ({
-        uri: configService.get<string>('MONGODB_URI'),
+        uri: configService.get<string>('MONGODB_URI'), //ARREGLO EN VARIABLES DE ENTORNO
         useUnifiedTopology: true,
         useNewUrlParser: true,
       }),
