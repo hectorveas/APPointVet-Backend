@@ -13,10 +13,25 @@ import { MedicalRecordModule } from './medical-record/medical-record.module';
 import { ContactModule } from './contact/contact.module';
 import { AttentionRecordModule } from './attention-record/attention-record.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { ConfigModule } from '@nestjs/config';
+import { ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost/Appointvet-master'),
+    //MongooseModule.forRootAsync({
+    //  useFactory: () => ({
+    //    uri: '',
+    //  }),
+    //}),
+    MongooseModule.forRootAsync({
+      imports: [ConfigModule.forRoot({ isGlobal: true })],
+      useFactory: async (configService: ConfigService) => ({
+        uri: configService.get<string>('MONGODB_URI'), //ARREGLO EN VARIABLES DE ENTORNO
+        useUnifiedTopology: true,
+        useNewUrlParser: true,
+      }),
+      inject: [ConfigService],
+    }),
     VeterinaryModule,
     OwnerModule,
     PetOwnerModule,
