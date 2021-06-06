@@ -15,6 +15,7 @@ import { AttentionRecordModule } from './attention-record/attention-record.modul
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 import { ConfigService } from '@nestjs/config';
+import { AppointmentModule } from './appointment/appointment.module';
 
 @Module({
   imports: [
@@ -38,6 +39,7 @@ import { ConfigService } from '@nestjs/config';
     MedicalRecordModule,
     ContactModule,
     AttentionRecordModule,
+    AppointmentModule,
   ],
   controllers: [AppController],
   providers: [AppService],
