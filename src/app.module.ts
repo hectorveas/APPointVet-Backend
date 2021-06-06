@@ -16,6 +16,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 import { ConfigService } from '@nestjs/config';
 import { AppointmentModule } from './appointment/appointment.module';
+import { ThrottlerModule } from '@nestjs/throttler';
 
 @Module({
   imports: [
@@ -27,6 +28,10 @@ import { AppointmentModule } from './appointment/appointment.module';
         useNewUrlParser: true,
       }),
       inject: [ConfigService],
+    }),
+    ThrottlerModule.forRoot({
+      ttl: 60,
+      limit: 10,
     }),
     VeterinaryModule,
     OwnerModule,
