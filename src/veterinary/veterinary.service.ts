@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CreateVeterinaryDTO } from './dto/veterinary.dto';
+import { CreateVeterinaryDTO, UpdateVeterinaryDTO } from './dto/veterinary.dto';
 import { Veterinary } from './interfaces/veterinary.interface';
 
 @Injectable()
@@ -36,11 +36,11 @@ export class VeterinaryService {
 
   async updateVeterinary(
     id: string,
-    createVeterinaryDTO: CreateVeterinaryDTO,
+    updateVeterinaryDTO: UpdateVeterinaryDTO,
   ): Promise<Veterinary> {
     const updatedVeterinary = await this.VeterinaryModel.findByIdAndUpdate(
       id,
-      createVeterinaryDTO,
+      updateVeterinaryDTO,
       { new: true },
     );
     return updatedVeterinary;

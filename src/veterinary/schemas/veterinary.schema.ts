@@ -2,7 +2,7 @@ import { Schema } from 'mongoose';
 
 export const VeterinarySchema = new Schema({
   name: String,
-  phone: Date,
+  phone: String,
   address: String,
   specialties: [String],
 });
