@@ -14,7 +14,7 @@ export class CreateVeterinaryDTO {
     message: 'input incorrecto',
   })
   @MaxLength(50, {
-    message: 'input incorrecto chupa benja',
+    message: 'input incorrecto',
   })
   @ApiProperty()
   readonly name: string;
@@ -33,7 +33,7 @@ export class CreateVeterinaryDTO {
     message: 'input incorrecto',
   })
   @MaxLength(50, {
-    message: 'input incorrecto chupa benja',
+    message: 'input incorrecto',
   })
   @ApiProperty()
   readonly address: string;

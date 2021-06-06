@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CreateAttentionRecordDTO } from './dto/attention-record.dto';
+import { CreateAttentionRecordDTO, UpdateAttentionRecordDTO } from './dto/attention-record.dto';
 import { AttentionRecord } from './interfaces/attention-record.interface';
 
 @Injectable()
@@ -39,12 +39,12 @@ export class AttentionRecordService {
 
   async updateAttentionRecord(
     id: string,
-    createAttentionRecordDTO: CreateAttentionRecordDTO,
+    updateAttentionRecordDTO: UpdateAttentionRecordDTO,
   ): Promise<AttentionRecord> {
     const updatedAttentionRecord =
       await this.attentionRecordModel.findByIdAndUpdate(
         id,
-        createAttentionRecordDTO,
+        updateAttentionRecordDTO,
         { new: true },
       );
     return updatedAttentionRecord;

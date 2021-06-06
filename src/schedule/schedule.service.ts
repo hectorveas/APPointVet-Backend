@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CreateScheduleDTO } from './dto/schedule.dto';
+import { CreateScheduleDTO, UpdateScheduleDTO } from './dto/schedule.dto';
 import { Schedule } from './interfaces/schedule.interface';
 
 @Injectable()
@@ -36,11 +36,11 @@ export class ScheduleService {
 
   async updateSchedule(
     id: string,
-    createScheduleDTO: CreateScheduleDTO,
+    updateScheduleDTO: UpdateScheduleDTO,
   ): Promise<Schedule> {
     const updatedSchedule = await this.ScheduleModel.findByIdAndUpdate(
       id,
-      createScheduleDTO,
+      updateScheduleDTO,
       { new: true },
     );
     return updatedSchedule;

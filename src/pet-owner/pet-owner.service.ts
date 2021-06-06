@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CreatePetOwnerDTO } from './dto/pet-owner.dto';
+import { CreatePetOwnerDTO, UpdatePetOwnerDTO } from './dto/pet-owner.dto';
 import { PetOwner } from './interfaces/pet-owner.interface';
 
 @Injectable()
@@ -34,11 +34,11 @@ export class PetOwnerService {
 
   async updatePetOwner(
     id: string,
-    createPetOwnerDTO: CreatePetOwnerDTO,
+    updatePetOwnerDTO: UpdatePetOwnerDTO,
   ): Promise<PetOwner> {
     const updatedPetOwner = await this.petOwnerModel.findByIdAndUpdate(
       id,
-      createPetOwnerDTO,
+      updatePetOwnerDTO,
       { new: true },
     );
     return updatedPetOwner;

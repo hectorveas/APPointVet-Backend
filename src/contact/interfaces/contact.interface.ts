@@ -6,6 +6,7 @@ export interface Contact extends Document {
   readonly lastName: string;
   readonly rut: string;
   readonly mail: string;
-  readonly consult: string;
-  readonly DateRequest: Date;
+  readonly description: string;
+  readonly createdAt: Date;
+  readonly updatedAt: Date;
 }
