@@ -18,7 +18,7 @@ export class CreatePetOwnerDTO {
   })
   @ApiProperty()
   readonly name: string;
-  
+
   @IsString()
   @IsNotEmpty()
   @MinLength(0, {
@@ -29,13 +29,13 @@ export class CreatePetOwnerDTO {
   })
   @ApiProperty()
   readonly phone: string;
-  
+
   @IsString()
   @IsNotEmpty()
   @MinLength(0, {
     message: 'input incorrecto',
   })
-  @MaxLength(9, {
+  @MaxLength(10, {
     message: 'input incorrecto ',
   })
   @ApiProperty()

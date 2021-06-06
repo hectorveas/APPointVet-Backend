@@ -1,10 +1,4 @@
-import {
-  IsString,
-  IsNotEmpty,
-  MinLength,
-  MaxLength,
-  IsDateString,
-} from 'class-validator';
+import { IsString, IsNotEmpty, MinLength, MaxLength } from 'class-validator';
 import { PartialType, ApiProperty } from '@nestjs/swagger';
 
 export class CreateMedicalRecordDTO {
@@ -24,7 +18,7 @@ export class CreateMedicalRecordDTO {
   @MinLength(0, {
     message: 'input incorrecto',
   })
-  @MaxLength(3, {
+  @MaxLength(1000, {
     message: 'input incorrecto ',
   })
   @ApiProperty()
@@ -35,11 +29,13 @@ export class CreateMedicalRecordDTO {
   @MinLength(0, {
     message: 'input incorrecto',
   })
-  @MaxLength(2, {
+  @MaxLength(100, {
     message: 'input incorrecto ',
   })
   @ApiProperty()
   readonly age: string;
 }
 
-export class UpdateMedicalRecordDTO extends PartialType(CreateMedicalRecordDTO) {}
+export class UpdateMedicalRecordDTO extends PartialType(
+  CreateMedicalRecordDTO,
+) {}

@@ -1,10 +1,4 @@
-import {
-  IsString,
-  IsNotEmpty,
-  MinLength,
-  MaxLength,
-  IsDateString,
-} from 'class-validator';
+import { IsString, IsNotEmpty, MinLength, MaxLength } from 'class-validator';
 import { PartialType, ApiProperty } from '@nestjs/swagger';
 
 export class CreateScheduleDTO {
@@ -40,7 +34,7 @@ export class CreateScheduleDTO {
   })
   @ApiProperty()
   readonly availablePlace: string;
-  
+
   @IsString()
   @IsNotEmpty()
   @MinLength(0, {
@@ -51,13 +45,13 @@ export class CreateScheduleDTO {
   })
   @ApiProperty()
   readonly dayAvailable: string;
-  
+
   @IsString()
   @IsNotEmpty()
   @MinLength(0, {
     message: 'input incorrecto',
   })
-  @MaxLength(4, {
+  @MaxLength(40, {
     message: 'input incorrecto ',
   })
   @ApiProperty()

@@ -1,13 +1,7 @@
-import {
-  IsString,
-  IsNotEmpty,
-  MinLength,
-  MaxLength,
-} from 'class-validator';
+import { IsString, IsNotEmpty, MinLength, MaxLength } from 'class-validator';
 import { PartialType, ApiProperty } from '@nestjs/swagger';
 
 export class CreatePetDTO {
-  
   @IsString()
   @IsNotEmpty()
   @MinLength(0, {

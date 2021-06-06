@@ -1,11 +1,5 @@
-import {
-  IsString,
-  IsNotEmpty,
-  MinLength,
-  MaxLength,
-} from 'class-validator';
+import { IsString, IsNotEmpty, MinLength, MaxLength } from 'class-validator';
 import { PartialType, ApiProperty } from '@nestjs/swagger';
-
 
 export class CreateOwnerDTO {
   @IsString()
@@ -18,7 +12,7 @@ export class CreateOwnerDTO {
   })
   @ApiProperty()
   readonly name: string;
-  
+
   @IsString()
   @IsNotEmpty()
   @MinLength(0, {
@@ -29,13 +23,13 @@ export class CreateOwnerDTO {
   })
   @ApiProperty()
   readonly phone: string;
-  
+
   @IsString()
   @IsNotEmpty()
   @MinLength(0, {
     message: 'input incorrecto',
   })
-  @MaxLength(9, {
+  @MaxLength(10, {
     message: 'input incorrecto ',
   })
   @ApiProperty()
@@ -46,12 +40,12 @@ export class CreateOwnerDTO {
   @MinLength(0, {
     message: 'input incorrecto',
   })
-  @MaxLength(20, {
+  @MaxLength(30, {
     message: 'input incorrecto ',
   })
   @ApiProperty()
   readonly mail: string;
-  
+
   @IsString()
   @IsNotEmpty()
   @MinLength(0, {
@@ -62,7 +56,7 @@ export class CreateOwnerDTO {
   })
   @ApiProperty()
   readonly address: string;
-  
+
   @IsString()
   @IsNotEmpty()
   @MinLength(0, {
