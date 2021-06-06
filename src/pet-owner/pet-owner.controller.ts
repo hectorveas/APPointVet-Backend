@@ -13,7 +13,9 @@ import {
 } from '@nestjs/common';
 import { CreatePetOwnerDTO } from './dto/pet-owner.dto';
 import { PetOwnerService } from './pet-owner.service';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Pet-owners')
 @Controller('pet-owner')
 export class PetOwnerController {
   constructor(private petOwnerService: PetOwnerService) {}

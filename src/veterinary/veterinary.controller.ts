@@ -14,7 +14,9 @@ import {
 
 import { VeterinaryService } from './veterinary.service';
 import { CreateVeterinaryDTO } from './dto/veterinary.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Veterinaries')
 @Controller('veterinary')
 export class VeterinaryController {
   constructor(private veterinaryService: VeterinaryService) {}

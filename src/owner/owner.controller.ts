@@ -13,7 +13,9 @@ import {
 } from '@nestjs/common';
 import { CreateOwnerDTO } from './dto/owner.dto';
 import { OwnerService } from './owner.service';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Owners')
 @Controller('owner')
 export class OwnerController {
   constructor(private ownerService: OwnerService) {}

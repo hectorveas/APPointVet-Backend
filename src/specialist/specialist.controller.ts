@@ -13,7 +13,9 @@ import {
 } from '@nestjs/common';
 import { CreateSpecialistDTO } from './dto/specialist.dto';
 import { SpecialistService } from './specialist.service';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Specialists')
 @Controller('specialist')
 export class SpecialistController {
   constructor(private specialistService: SpecialistService) {}

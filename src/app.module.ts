@@ -18,15 +18,10 @@ import { ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
-    //MongooseModule.forRootAsync({
-    //  useFactory: () => ({
-    //    uri: '',
-    //  }),
-    //}),
     MongooseModule.forRootAsync({
       imports: [ConfigModule.forRoot({ isGlobal: true })],
       useFactory: async (configService: ConfigService) => ({
-        uri: configService.get<string>('MONGODB_URI'), //ARREGLO EN VARIABLES DE ENTORNO
+        uri: configService.get<string>('MONGODB_URI'),
         useUnifiedTopology: true,
         useNewUrlParser: true,
       }),
