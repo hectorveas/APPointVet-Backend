@@ -45,3 +45,4 @@ export class CreateVeterinaryDTO {
 }
 
 export class UpdateVeterinaryDTO extends PartialType(CreateVeterinaryDTO) {}
+
