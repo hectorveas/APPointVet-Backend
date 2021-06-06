@@ -14,7 +14,7 @@ export class CreateVaccineDTO {
     message: 'input incorrecto',
   })
   @MaxLength(50, {
-    message: 'input incorrecto chupa benja',
+    message: 'input incorrecto ',
   })
   @ApiProperty()
   readonly dose: string;
@@ -25,7 +25,7 @@ export class CreateVaccineDTO {
     message: 'input incorrecto',
   })
   @MaxLength(50, {
-    message: 'input incorrecto chupa benja',
+    message: 'input incorrecto',
   })
   @ApiProperty()
   readonly component: string;
@@ -41,7 +41,7 @@ export class CreateVaccineDTO {
     message: 'input incorrecto',
   })
   @MaxLength(50, {
-    message: 'input incorrecto chupa benja',
+    message: 'input incorrecto',
   })
   @ApiProperty()
   readonly associatedDisease: string;

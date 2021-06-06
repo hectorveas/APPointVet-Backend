@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CreateLocalDTO } from './dto/local.dto';
+import { CreateLocalDTO, UpdateLocalDTO} from './dto/local.dto';
 import { Local } from './interfaces/local.interface';
 
 @Injectable()
@@ -32,11 +32,11 @@ export class LocalService {
 
   async updateLocal(
     id: string,
-    createLocalDTO: CreateLocalDTO,
+    updateLocalDTO: UpdateLocalDTO,
   ): Promise<Local> {
     const updatedLocal = await this.localModel.findByIdAndUpdate(
       id,
-      createLocalDTO,
+      updateLocalDTO,
       { new: true },
     );
     return updatedLocal;
