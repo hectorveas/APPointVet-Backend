@@ -13,7 +13,9 @@ import {
 } from '@nestjs/common';
 import { AttentionRecordService } from './attention-record.service';
 import { CreateAttentionRecordDTO } from './dto/attention-record.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Attention-records')
 @Controller('attention-record')
 export class AttentionRecordController {
   constructor(private attentionRecordService: AttentionRecordService) {}
