@@ -8,7 +8,6 @@ import {
   Param,
   Post,
   Put,
-  Query,
   Res,
 } from '@nestjs/common';
 import { CreateMedicalRecordDTO } from './dto/medical-record.dto';
