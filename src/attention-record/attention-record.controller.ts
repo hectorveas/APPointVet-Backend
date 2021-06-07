@@ -51,8 +51,8 @@ export class AttentionRecordController {
     return res.status(HttpStatus.OK).json(attentionRecord);
   }
 
-  @Delete()
-  async deleteAttentionRecord(@Res() res, @Query('id') id) {
+  @Delete('/:id')
+  async deleteAttentionRecord(@Res() res, @Param('id') id) {
     const attentionRecord =
       await this.attentionRecordService.deleteAttentionRecord(id);
     if (!attentionRecord)
@@ -63,11 +63,11 @@ export class AttentionRecordController {
     });
   }
 
-  @Put()
+  @Put('/:id')
   async updateAttentionRecord(
     @Res() res,
     @Body() createAttentionRecordDTO: CreateAttentionRecordDTO,
-    @Query('id') id,
+    @Param('id') id,
   ) {
     const attentionRecord =
       await this.attentionRecordService.updateAttentionRecord(
