@@ -8,7 +8,6 @@ import {
   Param,
   Post,
   Put,
-  Query,
   Res,
 } from '@nestjs/common';
 import { AttentionRecordService } from './attention-record.service';
