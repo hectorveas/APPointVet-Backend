@@ -18,7 +18,7 @@ import {
 } from './dto/appointment.dto';
 import { ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
-import { Public } from 'src/auth/decorators/public.decorator';
+//import { Public } from 'src/auth/decorators/public.decorator'; @Public()
 
 @UseGuards(JwtAuthGuard)
 @ApiTags('Appointments')
@@ -40,7 +40,6 @@ export class AppointmentController {
     });
   }
 
-  @Public()
   @Get()
   async getAppointments(@Res() res) {
     const appointment = await this.appointmentService.getAppointements();
