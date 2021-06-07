@@ -47,8 +47,8 @@ export class ScheduleController {
     return res.status(HttpStatus.OK).json(Schedule);
   }
 
-  @Delete()
-  async deleteSchedule(@Res() res, @Query('id') id) {
+  @Delete('/:id')
+  async deleteSchedule(@Res() res, @Param('id') id) {
     const Schedule = await this.scheduleService.deleteSchedule(id);
     if (!Schedule) throw new NotFoundException('Schedule does not exist!');
     return res.status(HttpStatus.OK).json({
@@ -57,11 +57,11 @@ export class ScheduleController {
     });
   }
 
-  @Put()
+  @Put('/:id')
   async updateSchedule(
     @Res() res,
     @Body() createScheduleDTO: CreateScheduleDTO,
-    @Query('id') id,
+    @Param('id') id,
   ) {
     const Schedule = await this.scheduleService.updateSchedule(
       id,

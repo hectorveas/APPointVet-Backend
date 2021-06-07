@@ -48,8 +48,8 @@ export class MedicalRecordController {
     return res.status(HttpStatus.OK).json(medicalRecord);
   }
 
-  @Delete()
-  async deleteMedicalRecord(@Res() res, @Query('id') id) {
+  @Delete('/:id')
+  async deleteMedicalRecord(@Res() res, @Param('id') id) {
     const medicalRecord = await this.medicalRecordService.deleteMedicalRecord(
       id,
     );
@@ -61,11 +61,11 @@ export class MedicalRecordController {
     });
   }
 
-  @Put()
+  @Put('/:id')
   async updateMedicalRecord(
     @Res() res,
     @Body() createMedicalRecordDTO: CreateMedicalRecordDTO,
-    @Query('id') id,
+    @Param('id') id,
   ) {
     const medicalRecord = await this.medicalRecordService.updateMedicalRecord(
       id,

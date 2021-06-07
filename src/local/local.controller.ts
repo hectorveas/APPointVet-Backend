@@ -42,8 +42,8 @@ export class LocalController {
     return res.status(HttpStatus.OK).json(local);
   }
 
-  @Delete()
-  async deleteLocal(@Res() res, @Query('id') id) {
+  @Delete('/:id')
+  async deleteLocal(@Res() res, @Param('id') id) {
     const local = await this.localService.deleteLocal(id);
     if (!local) throw new NotFoundException('Local does not exist!');
     return res.status(HttpStatus.OK).json({
@@ -52,11 +52,11 @@ export class LocalController {
     });
   }
 
-  @Put()
+  @Put('/:id')
   async updateLocal(
     @Res() res,
     @Body() createLocalDTO: CreateLocalDTO,
-    @Query('id') id,
+    @Param('id') id,
   ) {
     const local = await this.localService.updateLocal(id, createLocalDTO);
     if (!local) throw new NotFoundException('Local does not exist!');

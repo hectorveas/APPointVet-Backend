@@ -47,8 +47,8 @@ export class SpecialistController {
     return res.status(HttpStatus.OK).json(Specialist);
   }
 
-  @Delete()
-  async deleteSpecialist(@Res() res, @Query('id') id) {
+  @Delete('/:id')
+  async deleteSpecialist(@Res() res, @Param('id') id) {
     const Specialist = await this.specialistService.deleteSpecialist(id);
     if (!Specialist) throw new NotFoundException('Specialist does not exist!');
     return res.status(HttpStatus.OK).json({
@@ -57,11 +57,11 @@ export class SpecialistController {
     });
   }
 
-  @Put()
+  @Put('/:id')
   async updateSpecialist(
     @Res() res,
     @Body() createSpecialistDTO: CreateSpecialistDTO,
-    @Query('id') id,
+    @Param('id') id,
   ) {
     const Specialist = await this.specialistService.updateSpecialist(
       id,

@@ -48,8 +48,8 @@ export class VeterinaryController {
     return res.status(HttpStatus.OK).json(Veterinary);
   }
 
-  @Delete()
-  async deleteVeterinary(@Res() res, @Query('id') id) {
+  @Delete('/:id')
+  async deleteVeterinary(@Res() res, @Param('id') id) {
     const Veterinary = await this.veterinaryService.deleteVeterinary(id);
     if (!Veterinary) throw new NotFoundException('Veterinary does not exist!');
     return res.status(HttpStatus.OK).json({
@@ -58,11 +58,11 @@ export class VeterinaryController {
     });
   }
 
-  @Put()
+  @Put('/:id')
   async updateVeterinary(
     @Res() res,
     @Body() createVeterinaryDTO: CreateVeterinaryDTO,
-    @Query('id') id,
+    @Param('id') id,
   ) {
     const Veterinary = await this.veterinaryService.updateVeterinary(
       id,

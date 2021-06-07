@@ -51,8 +51,8 @@ export class AppointmentController {
     return res.status(HttpStatus.OK).json(appointment);
   }
 
-  @Delete()
-  async deleteAppointment(@Res() res, @Query('id') id) {
+  @Delete('/:id')
+  async deleteAppointment(@Res() res, @Param('id') id) {
     const appointment = await this.appointmentService.deleteAppointment(id);
     if (!appointment)
       throw new NotFoundException('Appointment does not exist!');
@@ -62,11 +62,11 @@ export class AppointmentController {
     });
   }
 
-  @Put()
+  @Put('/:id')
   async updateAppointment(
     @Res() res,
     @Body() updateAppointmentDTO: UpdateAppointmentDTO,
-    @Query('id') id,
+    @Param('id') id,
   ) {
     const appointment = await this.appointmentService.updateAppointment(
       id,

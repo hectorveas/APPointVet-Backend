@@ -8,7 +8,6 @@ import {
   Param,
   Post,
   Put,
-  Query,
   Res,
 } from '@nestjs/common';
 import { ContactService } from './contact.service';
@@ -42,8 +41,8 @@ export class ContactController {
     return res.status(HttpStatus.OK).json(contact);
   }
 
-  @Delete()
-  async deleteContact(@Res() res, @Query('id') id) {
+  @Delete('/:id')
+  async deleteContact(@Res() res, @Param('id') id) {
     const contact = await this.contactService.deleteContact(id);
     if (!contact) throw new NotFoundException('Contact does not exist!');
     return res.status(HttpStatus.OK).json({
@@ -52,11 +51,11 @@ export class ContactController {
     });
   }
 
-  @Put()
+  @Put('/:id')
   async updateContact(
     @Res() res,
     @Body() createContactDTO: CreateContactDTO,
-    @Query('id') id,
+    @Param('id') id,
   ) {
     const contact = await this.contactService.updateContact(
       id,

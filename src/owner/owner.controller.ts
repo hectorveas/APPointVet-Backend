@@ -42,8 +42,8 @@ export class OwnerController {
     return res.status(HttpStatus.OK).json(owner);
   }
 
-  @Delete()
-  async deleteOwner(@Res() res, @Query('id') id) {
+  @Delete('/:id')
+  async deleteOwner(@Res() res, @Param('id') id) {
     const owner = await this.ownerService.deleteOwner(id);
     if (!owner) throw new NotFoundException('Owner does not exist!');
     return res.status(HttpStatus.OK).json({
@@ -52,11 +52,11 @@ export class OwnerController {
     });
   }
 
-  @Put()
+  @Put('/:id')
   async updateOwner(
     @Res() res,
     @Body() createOwnerDTO: CreateOwnerDTO,
-    @Query('id') id,
+    @Param('id') id,
   ) {
     const owner = await this.ownerService.updateOwner(id, createOwnerDTO);
     if (!owner) throw new NotFoundException('Owner does not exist!');

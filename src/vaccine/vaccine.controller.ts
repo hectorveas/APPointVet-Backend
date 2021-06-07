@@ -42,8 +42,8 @@ export class VaccineController {
     return res.status(HttpStatus.OK).json(Vaccine);
   }
 
-  @Delete()
-  async deleteVaccine(@Res() res, @Query('id') id) {
+  @Delete('/:id')
+  async deleteVaccine(@Res() res, @Param('id') id) {
     const Vaccine = await this.vaccineService.deleteVaccine(id);
     if (!Vaccine) throw new NotFoundException('Vaccine does not exist!');
     return res.status(HttpStatus.OK).json({
@@ -52,11 +52,11 @@ export class VaccineController {
     });
   }
 
-  @Put()
+  @Put('/:id')
   async updateVaccine(
     @Res() res,
     @Body() createVaccineDTO: CreateVaccineDTO,
-    @Query('id') id,
+    @Param('id') id,
   ) {
     const Vaccine = await this.vaccineService.updateVaccine(
       id,

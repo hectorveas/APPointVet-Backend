@@ -47,8 +47,8 @@ export class PetOwnerController {
     return res.status(HttpStatus.OK).json(petOwner);
   }
 
-  @Delete()
-  async deletePetOwner(@Res() res, @Query('id') id) {
+  @Delete('/:id')
+  async deletePetOwner(@Res() res, @Param('id') id) {
     const petOwner = await this.petOwnerService.deletePetOwner(id);
     if (!petOwner) throw new NotFoundException('PetOwner does not exist!');
     return res.status(HttpStatus.OK).json({
@@ -57,11 +57,11 @@ export class PetOwnerController {
     });
   }
 
-  @Put()
+  @Put('/:id')
   async updatePetOwner(
     @Res() res,
     @Body() createPetOwnerDTO: CreatePetOwnerDTO,
-    @Query('id') id,
+    @Param('id') id,
   ) {
     const petOwner = await this.petOwnerService.updatePetOwner(
       id,
