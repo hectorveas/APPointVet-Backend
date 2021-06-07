@@ -9,6 +9,7 @@ import {
   Post,
   Put,
   Res,
+  UseGuards,
 } from '@nestjs/common';
 import { AppointmentService } from './appointment.service';
 import {
@@ -16,7 +17,10 @@ import {
   UpdateAppointmentDTO,
 } from './dto/appointment.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
+import { Public } from 'src/auth/decorators/public.decorator';
 
+@UseGuards(JwtAuthGuard)
 @ApiTags('Appointments')
 @Controller('appointment')
 export class AppointmentController {
@@ -36,14 +40,15 @@ export class AppointmentController {
     });
   }
 
+  @Public()
   @Get()
-  async getAppointment(@Res() res) {
+  async getAppointments(@Res() res) {
     const appointment = await this.appointmentService.getAppointements();
     return res.status(HttpStatus.OK).json(appointment);
   }
 
   @Get('/:id')
-  async getProduct(@Res() res, @Param('id') id) {
+  async getAppointment(@Res() res, @Param('id') id) {
     const appointment = await this.appointmentService.getAppointment(id);
     if (!appointment)
       throw new NotFoundException('Appointment does not exist!');
