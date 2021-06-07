@@ -8,7 +8,7 @@ import { Specialist } from 'src/specialist/interfaces/specialist.interface';
 export class AuthController {
   constructor(private authService: AuthService) {}
   @UseGuards(AuthGuard('local'))
-  @Post('login')
+  @Post('login/specialist')
   login(@Req() req: Request) {
     const user = req.user as Specialist;
     return this.authService.generateSpecialistJWT(user);
