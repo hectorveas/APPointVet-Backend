@@ -4,7 +4,7 @@ export const AppointmentSchema = new Schema({
   pacient: String,
   createdAt: Date,
   description: String,
-  stateAppointment: Number,
+  status: Number,
   cancellationMotive: String,
   responsable: String,
 });

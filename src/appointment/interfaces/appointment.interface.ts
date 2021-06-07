@@ -5,7 +5,7 @@ export interface Appointment extends Document {
   readonly pacient: string;
   readonly createdAt: Date;
   readonly description: string;
-  readonly stateAppointment: number;
+  readonly status: number;
   readonly cancellationMotive?: string;
   readonly responsable?: string;
 }

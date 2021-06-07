@@ -41,8 +41,8 @@ export class CreateAppointmentDTO {
 
   @IsInt()
   @Min(1)
-  @Max(3)
-  readonly stateAppointment: number;
+  @Max(4)
+  readonly status: number;
 
   @IsString()
   @MinLength(0, {
