@@ -4,10 +4,9 @@ import {
   MinLength,
   MaxLength,
   IsDateString,
-  // IsInt,
-  // Min,
-  // Max,
-  // IsEmpty,
+  IsInt,
+  Min,
+  Max,
 } from 'class-validator';
 import { PartialType, ApiProperty } from '@nestjs/swagger';
 
@@ -41,15 +40,15 @@ export class CreateAppointmentDTO {
   readonly description: string; //1
 }
 
-export class UpdateAppointmentDTO extends PartialType(CreateAppointmentDTO) {}
+export class UpdateAppointmentDTO extends PartialType(CreateAppointmentDTO) {
+  @IsInt()
+  @Min(1)
+  @Max(4)
+  @IsNotEmpty()
+  readonly status: number; //default 3
+}
 
 /*
-@IsInt()
-@Min(1)
-@Max(4)
-@IsEmpty()
-readonly status?: 3; //default 3
-
 @IsString()
 @MinLength(0, {
   message: 'input incorrecto',
@@ -70,10 +69,4 @@ readonly cancellationMotive?: string;
 })
 @ApiProperty()
 @IsEmpty()
-readonly responsable?: string;
-
-@IsDateString()
-@IsEmpty()
-@ApiProperty()
-readonly createdAt?: Date;
-*/
+readonly responsable?: string */

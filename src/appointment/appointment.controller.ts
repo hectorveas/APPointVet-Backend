@@ -12,7 +12,10 @@ import {
   Res,
 } from '@nestjs/common';
 import { AppointmentService } from './appointment.service';
-import { CreateAppointmentDTO } from './dto/appointment.dto';
+import {
+  CreateAppointmentDTO,
+  UpdateAppointmentDTO,
+} from './dto/appointment.dto';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Appointments')
@@ -62,12 +65,12 @@ export class AppointmentController {
   @Put()
   async updateAppointment(
     @Res() res,
-    @Body() createAppointmentDTO: CreateAppointmentDTO,
+    @Body() updateAppointmentDTO: UpdateAppointmentDTO,
     @Query('id') id,
   ) {
     const appointment = await this.appointmentService.updateAppointment(
       id,
-      createAppointmentDTO,
+      updateAppointmentDTO,
     );
     if (!appointment) throw new NotFoundException('Product does not exist!');
     return res.status(HttpStatus.OK).json({
