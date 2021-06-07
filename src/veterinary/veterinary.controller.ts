@@ -9,13 +9,19 @@ import {
   Post,
   Put,
   Res,
+  UseGuards,
+  //  UseGuards,
+  // SetMetadata,
 } from '@nestjs/common';
 
 import { VeterinaryService } from './veterinary.service';
 import { CreateVeterinaryDTO } from './dto/veterinary.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { ApiKeyGuard } from '../auth/guards/api-key.guard';
+import { Public } from '../auth/decorators/public.decorator';
 
 @ApiTags('Veterinaries')
+@UseGuards(ApiKeyGuard)
 @Controller('veterinary')
 export class VeterinaryController {
   constructor(private veterinaryService: VeterinaryService) {}
@@ -34,12 +40,13 @@ export class VeterinaryController {
     });
   }
 
+  @Public()
   @Get()
   async getVeterinaries(@Res() res) {
     const Veterinary = await this.veterinaryService.getAppointements();
     return res.status(HttpStatus.OK).json(Veterinary);
   }
-
+  //@Public() endpoint publico
   @Get('/:id')
   async getVeterinary(@Res() res, @Param('id') id) {
     const Veterinary = await this.veterinaryService.getVeterinary(id);

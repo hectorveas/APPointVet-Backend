@@ -8,5 +8,5 @@ export interface Specialist extends Document {
   readonly rut: string;
   readonly phone: string;
   readonly mail: string;
-  readonly password: string;
+  password: string;
 }

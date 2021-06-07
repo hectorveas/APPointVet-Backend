@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateSpecialistDTO, UpdateSpecialistDTO } from './dto/specialist.dto';
 import { Specialist } from './interfaces/specialist.interface';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class SpecialistService {
@@ -11,12 +12,17 @@ export class SpecialistService {
     private readonly SpecialistModel: Model<Specialist>,
   ) {}
 
-  // Post a single product
-  async createSpecialist(
-    createSpecialistDTO: CreateSpecialistDTO,
-  ): Promise<Specialist> {
+  async createSpecialist(createSpecialistDTO: CreateSpecialistDTO) {
     const newSpecialist = new this.SpecialistModel(createSpecialistDTO);
-    return newSpecialist.save();
+    const hashPassword = await bcrypt.hash(newSpecialist.password, 10);
+    newSpecialist.password = hashPassword;
+    const model = await newSpecialist.save();
+    const { password, ...rta } = model.toJSON();
+    return rta;
+  }
+
+  findByEmail(mail: string) {
+    return this.SpecialistModel.findOne({ mail });
   }
 
   async getAppointements(): Promise<Specialist[]> {
