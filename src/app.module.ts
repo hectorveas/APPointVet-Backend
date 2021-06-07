@@ -17,6 +17,7 @@ import { ConfigModule } from '@nestjs/config';
 import { ConfigService } from '@nestjs/config';
 import { AppointmentModule } from './appointment/appointment.module';
 import { ThrottlerModule } from '@nestjs/throttler';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -45,6 +46,7 @@ import { ThrottlerModule } from '@nestjs/throttler';
     ContactModule,
     AttentionRecordModule,
     AppointmentModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

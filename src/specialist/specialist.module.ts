@@ -12,5 +12,6 @@ import { SpecialistService } from './specialist.service';
   ],
   controllers: [SpecialistController],
   providers: [SpecialistService],
+  exports: [SpecialistService],
 })
 export class SpecialistModule {}
