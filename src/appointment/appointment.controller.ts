@@ -9,7 +9,7 @@ import {
   Post,
   Put,
   Res,
-  UseGuards,
+  //UseGuards,
 } from '@nestjs/common';
 import { AppointmentService } from './appointment.service';
 import {
@@ -17,10 +17,10 @@ import {
   UpdateAppointmentDTO,
 } from './dto/appointment.dto';
 import { ApiTags } from '@nestjs/swagger';
-import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
+//import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 //import { Public } from 'src/auth/decorators/public.decorator'; @Public()
 
-@UseGuards(JwtAuthGuard)
+//@UseGuards(JwtAuthGuard)
 @ApiTags('Appointments')
 @Controller('appointment')
 export class AppointmentController {
