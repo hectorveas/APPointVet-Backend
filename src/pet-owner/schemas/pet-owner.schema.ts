@@ -7,7 +7,8 @@ export const PetOwnerSchema = new Schema({
   rut: String,
   mail: String,
   address: String,
-  passWord: String,
+  password: String,
   pets: [String],
   veterinaries: [String],
+  role: { type: String, default: 'petOwner' },
 });

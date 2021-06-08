@@ -7,7 +7,8 @@ export interface PetOwner extends Document {
   readonly rut: string;
   readonly mail: string;
   readonly address: string;
-  readonly passWord: string;
+  password: string;
   readonly pets: string[];
   readonly veterinaries: string[];
+  readonly role: string;
 }

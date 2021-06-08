@@ -72,7 +72,7 @@ export class CreatePetOwnerDTO {
     message: 'input incorrecto ',
   })
   @ApiProperty()
-  readonly passWord: string;
+  readonly password: string;
 
   @IsArray()
   @IsNotEmpty()

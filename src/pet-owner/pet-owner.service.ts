@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreatePetOwnerDTO, UpdatePetOwnerDTO } from './dto/pet-owner.dto';
 import { PetOwner } from './interfaces/pet-owner.interface';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class PetOwnerService {
@@ -10,11 +11,17 @@ export class PetOwnerService {
     @InjectModel('PetOwner') private readonly petOwnerModel: Model<PetOwner>,
   ) {}
 
-  async createPetOwner(
-    createPetOwnerDTO: CreatePetOwnerDTO,
-  ): Promise<PetOwner> {
+  async createPetOwner(createPetOwnerDTO: CreatePetOwnerDTO) {
     const newPetOwner = new this.petOwnerModel(createPetOwnerDTO);
-    return newPetOwner.save();
+    const hashPassword = await bcrypt.hash(newPetOwner.password, 10);
+    newPetOwner.password = hashPassword;
+    const model = await newPetOwner.save();
+    const { password, ...rta } = model.toJSON();
+    return rta;
+  }
+
+  findByEmail(mail: string) {
+    return this.petOwnerModel.findOne({ mail });
   }
 
   async getPetOwners(): Promise<PetOwner[]> {

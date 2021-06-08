@@ -10,5 +10,6 @@ import { PetOwnerSchema } from './schemas/pet-owner.schema';
   ],
   controllers: [PetOwnerController],
   providers: [PetOwnerService],
+  exports: [PetOwnerService],
 })
 export class PetOwnerModule {}

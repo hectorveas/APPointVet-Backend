@@ -9,4 +9,5 @@ export interface Specialist extends Document {
   readonly phone: string;
   readonly mail: string;
   password: string;
+  readonly role: string;
 }

@@ -6,9 +6,11 @@ import { LocalStrategy } from './strategies/local.strategy';
 import { AuthController } from './controllers/auth.controller';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './strategies/jwt.strategy';
+import { PetOwnerModule } from 'src/pet-owner/pet-owner.module';
 
 @Module({
   imports: [
+    PetOwnerModule,
     SpecialistModule,
     PassportModule,
     JwtModule.registerAsync({

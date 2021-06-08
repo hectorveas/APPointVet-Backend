@@ -8,4 +8,5 @@ export const SpecialistSchema = new Schema({
   phone: String,
   mail: String,
   password: String,
+  role: { type: String, default: 'specialist' },
 });
