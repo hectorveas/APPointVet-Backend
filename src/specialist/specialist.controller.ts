@@ -46,6 +46,13 @@ export class SpecialistController {
     return res.status(HttpStatus.OK).json(Specialist);
   }
 
+  @Get('search/:rut')
+  async getSpecialistByRut(@Res() res, @Param('rut') rut) {
+    const Specialist = await this.specialistService.getSpecialistByRut(rut);
+    if (!Specialist) throw new NotFoundException('Specialist does not exist!');
+    return res.status(HttpStatus.OK).json(Specialist);
+  }
+
   @Delete('/:id')
   async deleteSpecialist(@Res() res, @Param('id') id) {
     const Specialist = await this.specialistService.deleteSpecialist(id);

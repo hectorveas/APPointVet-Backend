@@ -35,6 +35,11 @@ export class SpecialistService {
     return Specialist;
   }
 
+  async getSpecialistByRut(rut: string): Promise<Specialist> {
+    const Specialist = await this.SpecialistModel.findOne({ rut });
+    return Specialist;
+  }
+
   async deleteSpecialist(id: string): Promise<any> {
     const Specialist = await this.SpecialistModel.findByIdAndDelete(id);
     return Specialist;
