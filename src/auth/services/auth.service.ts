@@ -17,7 +17,7 @@ export class AuthService {
 
   async validateSpecialist(mail: string, password: string) {
     const specialist = await this.specialistService.findByEmail(mail);
-    if (specialist) {
+    if (specialist && specialist.role === 'specialist') {
       const isMatch = await bcrypt.compare(password, specialist.password);
       if (isMatch) {
         const { password, ...rta } = specialist.toJSON();
@@ -37,7 +37,7 @@ export class AuthService {
 
   async validatePetOwner(mail: string, password: string) {
     const petOwner = await this.petOwnerService.findByEmail(mail);
-    if (petOwner) {
+    if (petOwner && petOwner.role === 'petOwner') {
       const isMatch = await bcrypt.compare(password, petOwner.password);
       if (isMatch) {
         const { password, ...rta } = petOwner.toJSON();

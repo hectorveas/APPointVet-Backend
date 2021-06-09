@@ -3,7 +3,8 @@ import { Document } from 'mongoose';
 export interface Specialist extends Document {
   //_id?: string;
   readonly veterinary: string;
-  readonly name: string;
+  readonly lastName: string;
+  readonly firstName: string;
   readonly specialties: string[];
   readonly rut: string;
   readonly phone: string;
