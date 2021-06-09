@@ -2,7 +2,7 @@ import { Schema } from 'mongoose';
 
 export const ContactSchema = new Schema({
   //_id?: string;
-  name: String,
+  firstName: String,
   lastName: String,
   rut: String,
   mail: String,

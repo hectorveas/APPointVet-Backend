@@ -1,7 +1,8 @@
 import { Schema } from 'mongoose';
 
 export const AppointmentSchema = new Schema({
-  pacient: String,
+  firstName: String,
+  lastName: String,
   date: Date,
   createdAt: {
     type: Date,

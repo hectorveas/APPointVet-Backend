@@ -21,7 +21,18 @@ export class CreateAppointmentDTO {
     message: 'input incorrecto',
   })
   @ApiProperty()
-  readonly pacient: string; //1
+  readonly firstName: string; //1
+
+  @IsString()
+  @IsNotEmpty()
+  @MinLength(0, {
+    message: 'input incorrecto',
+  })
+  @MaxLength(50, {
+    message: 'input incorrecto',
+  })
+  @ApiProperty()
+  readonly lastName: string; //1
 
   @IsDateString()
   @IsNotEmpty()
