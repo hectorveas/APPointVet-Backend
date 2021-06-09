@@ -28,7 +28,18 @@ export class CreateSpecialistDTO {
     message: 'input incorrecto ',
   })
   @ApiProperty()
-  readonly name: string;
+  readonly firstName: string;
+
+  @IsString()
+  @IsNotEmpty()
+  @MinLength(0, {
+    message: 'input incorrecto',
+  })
+  @MaxLength(30, {
+    message: 'input incorrecto ',
+  })
+  @ApiProperty()
+  readonly lastName: string;
 
   @IsArray()
   @IsNotEmpty()
