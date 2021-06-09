@@ -46,6 +46,13 @@ export class PetOwnerController {
     return res.status(HttpStatus.OK).json(petOwner);
   }
 
+  @Get('search/:rut')
+  async getPetOwnerByRut(@Res() res, @Param('rut') rut) {
+    const petOwner = await this.petOwnerService.getPetOwnerByRut(rut);
+    if (!petOwner) throw new NotFoundException('PetOwner does not exist!');
+    return res.status(HttpStatus.OK).json(petOwner);
+  }
+
   @Delete('/:id')
   async deletePetOwner(@Res() res, @Param('id') id) {
     const petOwner = await this.petOwnerService.deletePetOwner(id);

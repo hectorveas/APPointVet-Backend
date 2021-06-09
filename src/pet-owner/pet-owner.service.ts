@@ -39,6 +39,11 @@ export class PetOwnerService {
     return petOwner;
   }
 
+  async getPetOwnerByRut(rut: string): Promise<PetOwner> {
+    const petOwner = await this.petOwnerModel.findOne({ rut });
+    return petOwner;
+  }
+
   async updatePetOwner(
     id: string,
     updatePetOwnerDTO: UpdatePetOwnerDTO,
