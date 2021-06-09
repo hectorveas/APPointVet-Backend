@@ -15,7 +15,7 @@ import { MedicalRecordService } from './medical-record.service';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Medical-records')
-@Controller('medical-record')
+@Controller('api/medical-record')
 export class MedicalRecordController {
   constructor(private medicalRecordService: MedicalRecordService) {}
 

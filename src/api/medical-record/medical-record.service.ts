@@ -1,7 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CreateMedicalRecordDTO, UpdateMedicalRecordDTO } from './dto/medical-record.dto';
+import {
+  CreateMedicalRecordDTO,
+  UpdateMedicalRecordDTO,
+} from './dto/medical-record.dto';
 import { MedicalRecord } from './interfaces/medical-record.interface';
 
 @Injectable()

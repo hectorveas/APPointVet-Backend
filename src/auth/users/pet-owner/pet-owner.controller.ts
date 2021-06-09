@@ -15,7 +15,7 @@ import { PetOwnerService } from './pet-owner.service';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Pet-owners')
-@Controller('pet-owner')
+@Controller('api/pet-owner')
 export class PetOwnerController {
   constructor(private petOwnerService: PetOwnerService) {}
 

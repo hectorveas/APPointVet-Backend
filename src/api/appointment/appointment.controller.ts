@@ -22,7 +22,7 @@ import { ApiTags } from '@nestjs/swagger';
 
 //@UseGuards(JwtAuthGuard)
 @ApiTags('Appointments')
-@Controller('appointment')
+@Controller('api/appointment')
 export class AppointmentController {
   constructor(private appointmentService: AppointmentService) {}
 

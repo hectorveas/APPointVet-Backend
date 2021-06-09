@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { SpecialistService } from '../../specialist/specialist.service';
+import { SpecialistService } from '../users/specialist/specialist.service';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
-import { Specialist } from 'src/specialist/interfaces/specialist.interface';
+import { Specialist } from '../users/specialist/interfaces/specialist.interface';
 import { PayloadToken } from '../models/token.model';
-import { PetOwner } from 'src/pet-owner/interfaces/pet-owner.interface';
-import { PetOwnerService } from 'src/pet-owner/pet-owner.service';
+import { PetOwner } from '../users/pet-owner/interfaces/pet-owner.interface';
+import { PetOwnerService } from '../users/pet-owner/pet-owner.service';
 
 @Injectable()
 export class AuthService {

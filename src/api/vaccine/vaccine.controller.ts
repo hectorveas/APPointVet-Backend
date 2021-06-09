@@ -15,7 +15,7 @@ import { VaccineService } from './vaccine.service';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Vaccines')
-@Controller('vaccine')
+@Controller('api/vaccine')
 export class VaccineController {
   constructor(private vaccineService: VaccineService) {}
 

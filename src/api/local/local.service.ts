@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CreateLocalDTO, UpdateLocalDTO} from './dto/local.dto';
+import { CreateLocalDTO, UpdateLocalDTO } from './dto/local.dto';
 import { Local } from './interfaces/local.interface';
 
 @Injectable()

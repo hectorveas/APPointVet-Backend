@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
 import { AuthService } from './services/auth.service';
 import { PassportModule } from '@nestjs/passport';
-import { SpecialistModule } from './../specialist/specialist.module';
 import { SpecialistStrategy } from './strategies/specialist.strategy';
 import { AuthController } from './controllers/auth.controller';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './strategies/jwt.strategy';
-import { PetOwnerModule } from 'src/pet-owner/pet-owner.module';
 import { PetOwnerStrategy } from './strategies/petOwner.strategy.';
+import { SpecialistModule } from './users/specialist/specialist.module';
+import { PetOwnerModule } from './users/pet-owner/pet-owner.module';
 
 @Module({
   imports: [

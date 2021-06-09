@@ -15,7 +15,7 @@ import { OwnerService } from './owner.service';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Owners')
-@Controller('owner')
+@Controller('api/owner')
 export class OwnerController {
   constructor(private ownerService: OwnerService) {}
 

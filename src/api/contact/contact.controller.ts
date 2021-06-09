@@ -15,7 +15,7 @@ import { CreateContactDTO } from './dto/contact.dto';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Contacts')
-@Controller('contact')
+@Controller('api/contact')
 export class ContactController {
   constructor(private contactService: ContactService) {}
 

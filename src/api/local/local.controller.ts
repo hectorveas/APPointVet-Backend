@@ -15,7 +15,7 @@ import { LocalService } from './local.service';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Locals')
-@Controller('local')
+@Controller('api/local')
 export class LocalController {
   constructor(private localService: LocalService) {}
 

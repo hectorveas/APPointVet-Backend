@@ -15,7 +15,7 @@ import { SpecialistService } from './specialist.service';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Specialists')
-@Controller('specialist')
+@Controller('api/specialist')
 export class SpecialistController {
   constructor(private specialistService: SpecialistService) {}
 

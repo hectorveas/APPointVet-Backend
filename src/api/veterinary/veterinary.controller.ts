@@ -17,12 +17,12 @@ import {
 import { VeterinaryService } from './veterinary.service';
 import { CreateVeterinaryDTO } from './dto/veterinary.dto';
 import { ApiTags } from '@nestjs/swagger';
-import { ApiKeyGuard } from '../auth/guards/api-key.guard';
-import { Public } from '../auth/decorators/public.decorator';
+import { ApiKeyGuard } from '../../auth/guards/api-key.guard';
+import { Public } from '../../auth/decorators/public.decorator';
 
 @ApiTags('Veterinaries')
 @UseGuards(ApiKeyGuard)
-@Controller('veterinary')
+@Controller('api/veterinary')
 export class VeterinaryController {
   constructor(private veterinaryService: VeterinaryService) {}
 

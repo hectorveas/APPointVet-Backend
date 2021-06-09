@@ -2,12 +2,12 @@ import { Controller, Post, Req, UseGuards } from '@nestjs/common';
 import { Request } from 'express';
 import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from '../services/auth.service';
-import { Specialist } from 'src/specialist/interfaces/specialist.interface';
-import { PetOwner } from 'src/pet-owner/interfaces/pet-owner.interface';
+import { Specialist } from '../users/specialist/interfaces/specialist.interface';
+import { PetOwner } from '../users/pet-owner/interfaces/pet-owner.interface';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Auths')
-@Controller('auth')
+@Controller('api/auth')
 export class AuthController {
   constructor(private authService: AuthService) {}
   @UseGuards(AuthGuard('specialist'))
