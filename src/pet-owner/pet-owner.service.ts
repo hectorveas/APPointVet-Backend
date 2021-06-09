@@ -20,8 +20,8 @@ export class PetOwnerService {
     return rta;
   }
 
-  findByEmail(mail: string) {
-    return this.petOwnerModel.findOne({ mail });
+  async findByEmail(mail: string) {
+    return await this.petOwnerModel.findOne({ mail });
   }
 
   async getPetOwners(): Promise<PetOwner[]> {

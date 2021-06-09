@@ -10,14 +10,14 @@ import { ApiTags } from '@nestjs/swagger';
 @Controller('auth')
 export class AuthController {
   constructor(private authService: AuthService) {}
-  @UseGuards(AuthGuard('local'))
+  @UseGuards(AuthGuard('specialist'))
   @Post('login/specialist')
   loginSpecialist(@Req() req: Request) {
     const user = req.user as Specialist;
     return this.authService.generateSpecialistJWT(user);
   }
 
-  @UseGuards(AuthGuard('local'))
+  @UseGuards(AuthGuard('petOwner'))
   @Post('login/pet-owner')
   loginPetOwner(@Req() req: Request) {
     const user = req.user as PetOwner;

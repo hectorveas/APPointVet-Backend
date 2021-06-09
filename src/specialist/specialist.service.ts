@@ -21,8 +21,8 @@ export class SpecialistService {
     return rta;
   }
 
-  findByEmail(mail: string) {
-    return this.SpecialistModel.findOne({ mail });
+  async findByEmail(mail: string) {
+    return await this.SpecialistModel.findOne({ mail });
   }
 
   async getAppointements(): Promise<Specialist[]> {
