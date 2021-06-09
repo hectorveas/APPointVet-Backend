@@ -11,7 +11,7 @@ export class CreateContactDTO {
     message: 'input incorrecto ',
   })
   @ApiProperty()
-  readonly name: string;
+  readonly firstName: string;
 
   @IsString()
   @IsNotEmpty()

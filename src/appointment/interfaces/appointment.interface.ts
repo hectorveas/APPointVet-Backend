@@ -2,7 +2,8 @@ import { Document } from 'mongoose';
 
 export interface Appointment extends Document {
   // _id?: string;
-  readonly pacient: string;
+  readonly firstName: string;
+  readonly lastName: string;
   readonly createdAt?: Date;
   readonly description: string;
   readonly date: Date;
