@@ -10,7 +10,7 @@ import {
   Put,
   Res,
 } from '@nestjs/common';
-import { CreateSpecialistDTO } from './dto/specialist.dto';
+import { CreateSpecialistDTO, UpdateSpecialistDTO } from './dto/specialist.dto';
 import { SpecialistService } from './specialist.service';
 import { ApiTags } from '@nestjs/swagger';
 
@@ -66,12 +66,12 @@ export class SpecialistController {
   @Put('/:id')
   async updateSpecialist(
     @Res() res,
-    @Body() createSpecialistDTO: CreateSpecialistDTO,
+    @Body() updateSpecialistDTO: UpdateSpecialistDTO,
     @Param('id') id,
   ) {
     const Specialist = await this.specialistService.updateSpecialist(
       id,
-      createSpecialistDTO,
+      updateSpecialistDTO,
     );
     if (!Specialist) throw new NotFoundException('Specialist does not exist!');
     return res.status(HttpStatus.OK).json({

@@ -13,17 +13,6 @@ export class CreateSpecialistDTO {
   @MinLength(0, {
     message: 'input incorrecto',
   })
-  @MaxLength(20, {
-    message: 'input incorrecto ',
-  })
-  @ApiProperty()
-  readonly veterinary: string;
-
-  @IsString()
-  @IsNotEmpty()
-  @MinLength(0, {
-    message: 'input incorrecto',
-  })
   @MaxLength(30, {
     message: 'input incorrecto ',
   })
@@ -40,11 +29,6 @@ export class CreateSpecialistDTO {
   })
   @ApiProperty()
   readonly lastName: string;
-
-  @IsArray()
-  @IsNotEmpty()
-  @ApiProperty()
-  readonly specialties: string[];
 
   @IsString()
   @IsNotEmpty()
@@ -91,4 +75,20 @@ export class CreateSpecialistDTO {
   readonly password: string;
 }
 
-export class UpdateSpecialistDTO extends PartialType(CreateSpecialistDTO) {}
+export class UpdateSpecialistDTO extends PartialType(CreateSpecialistDTO) {
+  @IsString()
+  @IsNotEmpty()
+  @MinLength(0, {
+    message: 'input incorrecto',
+  })
+  @MaxLength(20, {
+    message: 'input incorrecto ',
+  })
+  @ApiProperty()
+  readonly veterinary: string;
+
+  @IsArray()
+  @IsNotEmpty()
+  @ApiProperty()
+  readonly specialties: string[];
+}

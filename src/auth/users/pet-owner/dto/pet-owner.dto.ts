@@ -72,8 +72,10 @@ export class CreatePetOwnerDTO {
     message: 'input incorrecto ',
   })
   @ApiProperty()
-  readonly address: string;
+  readonly password: string;
+}
 
+export class UpdatePetOwnerDTO extends PartialType(CreatePetOwnerDTO) {
   @IsString()
   @IsNotEmpty()
   @MinLength(0, {
@@ -83,7 +85,7 @@ export class CreatePetOwnerDTO {
     message: 'input incorrecto ',
   })
   @ApiProperty()
-  readonly password: string;
+  readonly address: string;
 
   @IsArray()
   @IsNotEmpty()
@@ -93,5 +95,3 @@ export class CreatePetOwnerDTO {
   @IsNotEmpty()
   readonly veterinaries: string[];
 }
-
-export class UpdatePetOwnerDTO extends PartialType(CreatePetOwnerDTO) {}

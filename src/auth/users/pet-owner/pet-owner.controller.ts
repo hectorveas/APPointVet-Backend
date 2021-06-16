@@ -10,7 +10,7 @@ import {
   Put,
   Res,
 } from '@nestjs/common';
-import { CreatePetOwnerDTO } from './dto/pet-owner.dto';
+import { CreatePetOwnerDTO, UpdatePetOwnerDTO } from './dto/pet-owner.dto';
 import { PetOwnerService } from './pet-owner.service';
 import { ApiTags } from '@nestjs/swagger';
 
@@ -66,12 +66,12 @@ export class PetOwnerController {
   @Put('/:id')
   async updatePetOwner(
     @Res() res,
-    @Body() createPetOwnerDTO: CreatePetOwnerDTO,
+    @Body() updatePetOwnerDTO: UpdatePetOwnerDTO,
     @Param('id') id,
   ) {
     const petOwner = await this.petOwnerService.updatePetOwner(
       id,
-      createPetOwnerDTO,
+      updatePetOwnerDTO,
     );
     if (!petOwner) throw new NotFoundException('Product does not exist!');
     return res.status(HttpStatus.OK).json({
