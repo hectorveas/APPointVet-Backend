@@ -10,4 +10,5 @@ export const SpecialistSchema = new Schema({
   mail: String,
   password: String,
   role: { type: String, default: 'specialist' },
+  lastConection: { type: Date, default: Date.now },
 });

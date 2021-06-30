@@ -12,4 +12,5 @@ export const PetOwnerSchema = new Schema({
   pets: { type: String, default: null },
   veterinaries: { type: String, default: null },
   role: { type: String, default: 'petOwner' },
+  lastConection: { type: Date, default: Date.now },
 });
