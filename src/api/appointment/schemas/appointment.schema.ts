@@ -1,6 +1,8 @@
 import { Schema } from 'mongoose';
 
 export const AppointmentSchema = new Schema({
+  firstNameOwner: String,
+  lastNameOwner: String,
   firstName: String,
   lastName: String,
   date: Date,
