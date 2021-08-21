@@ -1,1 +1,1 @@
-web: npm run deploy 
+web: echo 'unsafe-perm=true' > .npmrc && npm run deploy 
