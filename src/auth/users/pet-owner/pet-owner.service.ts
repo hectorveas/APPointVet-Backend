@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreatePetOwnerDTO, UpdatePetOwnerDTO } from './dto/pet-owner.dto';
 import { PetOwner } from './interfaces/pet-owner.interface';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 
 @Injectable()
 export class PetOwnerService {

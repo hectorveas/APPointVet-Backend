@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateSpecialistDTO, UpdateSpecialistDTO } from './dto/specialist.dto';
 import { Specialist } from './interfaces/specialist.interface';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 
 @Injectable()
 export class SpecialistService {

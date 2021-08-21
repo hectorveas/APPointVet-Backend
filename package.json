@@ -19,7 +19,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "deploy": "echo 'unsafe-perm=true' > .npmrc && npm ci && npm run build && npm run start:prod"
+    "deploy": "npm ci && npm run build && npm run start:prod"
   },
   "dependencies": {
     "@nestjs/common": "^7.6.15",
@@ -32,7 +32,7 @@
     "@nestjs/platform-express": "^7.6.15",
     "@nestjs/swagger": "^4.8.0",
     "@nestjs/throttler": "^1.1.4",
-    "bcrypt": "^5.0.1",
+    "@types/bcryptjs": "^2.4.2",
     "bcryptjs": "^2.4.3",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
@@ -52,7 +52,6 @@
     "@nestjs/cli": "^7.6.0",
     "@nestjs/schematics": "^7.3.0",
     "@nestjs/testing": "^7.6.15",
-    "@types/bcrypt": "^5.0.0",
     "@types/express": "^4.17.11",
     "@types/jest": "^26.0.22",
     "@types/node": "^14.14.36",

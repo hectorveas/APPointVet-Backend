@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { SpecialistService } from '../users/specialist/specialist.service';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 import { JwtService } from '@nestjs/jwt';
 import { Specialist } from '../users/specialist/interfaces/specialist.interface';
 import { PayloadToken } from '../models/token.model';
